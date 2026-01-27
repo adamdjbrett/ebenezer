@@ -1342,7 +1342,7 @@ a.tags {color: var(--muted-text); font-weight: normal; text-decoration: none;}
 .menu-btn {
     position: relative;
     top: auto;
-    left: auto;
+    left: 0;
     right: auto;
     display: inline-flex;
     flex-direction: column;
