@@ -1,4 +1,6 @@
 # 📜 Ebenezer E-Journal
+[![xmit logo](xmit.gif)](https://xmit.co)
+deployed to xmit.co
 
 Ebenezer is a supplemental e-journal for Public Theology & Public Witness. Built with Eleventy (11ty), it is designed with a Tufte CSS aesthetic that prioritizes clean typography, margin notes, and high readability for academic and theological discourse.
 

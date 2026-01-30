@@ -1,18 +1,21 @@
 title: "Ebenezer"
 description: "A SUPPLEMENTAL E-JOURNAL FOR PUBLIC THEOLOGY & PUBLIC WITNESS"
-url: "http://localhost:8080"
+url: "https://ebenezer.pub"
+#url: "http://localhost:8080"
 language: "en"
 locale: "en_US"
 favicon: "/assets/img/ebenezer-vert.png"
 image: "/assets/img/ebenezer-vert.png"
 
 author:
-  name: "Ebenezer"
-  email: "info@ebenezer.org"
-  ur;: "https://author.com"
+  name: "Adam DJ Brett"
+  email: "info@adamdjbrett.com"
+  ur;: "https://adamdjbrett.com"
 
 metasocial: 
-  facebook: "https://facebook.com/user"
-  twitter: "https://x.com/user"
-  tweet_user: "@user"
+  facebook: "https://www.facebook.com/UnitedLutheranSeminary/"
+  instagram: "https://www.instagram.com/UnitedLutheran"
+  youtube: "https://www.youtube.com/unitedlutheranseminary"
+  #twitter: "https://x.com/user"
+  #weet_user: "@user"
 
