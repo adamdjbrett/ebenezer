@@ -54,9 +54,9 @@ layout: layouts/base.njk
 </p>
 {% endif %}
 </div>
-{% if design.show_toc_on_page or design.show_toc_on_home %}
+{% if metadata.show_toc_on_page or metadata.show_toc_on_home %}
 <aside class="toc-container">
-  <h2>{{ design.toc | default("Table of Contents") }}</h2>
+  <h2>{{ metadata.toc | default("Table of Contents") }}</h2>
   <nav>
     {{ content | toc | safe }}
   </nav>

@@ -54,25 +54,6 @@ collections:
       - { name: "tags", label: "Tags", type: "list" }
       - { name: "body", label: "Body", type: "markdown" }
 
-  - name: "sponsors"
-    label: "Sponsors"
-    path: "_data"
-    files:
-      - name: "sponsors"
-        label: "Sponsors"
-        path: "sponsors.yaml"
-        fields:
-          - { name: "title", label: "Title", type: "string" }
-          - { name: "description", label: "Description", type: "text" }
-          - name: "list"
-            label: "Sponsor List"
-            type: "list"
-            fields:
-              - { name: "title", label: "Title", type: "string" }
-              - { name: "image", label: "Image", type: "image" }
-              - { name: "url", label: "URL", type: "string" }
-              - { name: "alt", label: "Alt Text", type: "string" }
-
   - name: "data"
     label: "Global Data"
     path: "_data"
@@ -98,10 +79,32 @@ collections:
                   - { name: "icon", label: "Icon Class", type: "string" }
                   - { name: "url", label: "URL", type: "string" }
 
-      - name: "design"
-        label: "Design & Navbar"
-        path: "design.yaml"
+      - name: "metadata"
+        label: "Site Metadata"
+        path: "metadata.yaml"
         fields:
+          - { name: "title", label: "Site Title", type: "string" }
+          - { name: "description", label: "Description", type: "text" }
+          - { name: "url", label: "Base URL", type: "string" }
+          - { name: "language", label: "Language", type: "string" }
+          - { name: "locale", label: "Locale", type: "string" }
+          - { name: "favicon", label: "Favicon", type: "string" }
+          - { name: "image", label: "Default Image", type: "string" }
+          - name: "author"
+            label: "Author"
+            type: "object"
+            fields:
+              - { name: "name", label: "Name", type: "string" }
+              - { name: "email", label: "Email", type: "string" }
+              - { name: "url", label: "URL", type: "string" }
+          - name: "metasocial"
+            label: "Social Metadata"
+            type: "object"
+            fields:
+              - { name: "facebook", label: "Facebook URL", type: "string" }
+              - { name: "twitter", label: "Twitter/X URL", type: "string" }
+              - { name: "instagram", label: "Instagram URL", type: "string" }
+              - { name: "youtube", label: "YouTube URL", type: "string" }
           - name: "navbar"
             label: "Navbar Settings"
             type: "object"
@@ -111,32 +114,45 @@ collections:
               - { name: "logo", label: "Logo Path", type: "image" }
               - { name: "left_text", label: "Left Text", type: "string" }
               - { name: "right_text", label: "Right Text", type: "string" }
+              - name: "list"
+                label: "Nav Items"
+                type: "list"
+                fields:
+                  - { name: "name", label: "Name", type: "string" }
+                  - { name: "url", label: "URL", type: "string" }
           - name: "sidebar"
             label: "Sidebar Settings"
             type: "object"
             fields:
               - { name: "search", label: "Search Placeholder", type: "string" }
               - { name: "themes_button", label: "Theme Switch Text", type: "string" }
+              - name: "list"
+                label: "Sidebar Items"
+                type: "list"
+                fields:
+                  - { name: "name", label: "Name", type: "string" }
+                  - { name: "url", label: "URL", type: "string" }
           - { name: "toc", label: "TOC Title", type: "string" }
-          - { name: "show_toc_on_article", label: "Show TOC", type: "boolean" }
+          - { name: "show_toc_on_article", label: "Show TOC on Articles", type: "boolean" }
+          - { name: "show_toc_on_page", label: "Show TOC on Pages", type: "boolean" }
+          - { name: "show_toc_on_home", label: "Show TOC on Home", type: "boolean" }
           - name: "footer"
-            label: "Footer Text"
+            label: "Footer"
             type: "object"
             fields:
               - { name: "text", label: "Copyright", type: "string" }
-
-      - name: "metadata"
-        label: "Site Metadata"
-        path: "metadata.yaml"
-        fields:
-          - { name: "title", label: "Site Title", type: "string" }
-          - { name: "description", label: "Description", type: "text" }
-          - { name: "url", label: "Base URL", type: "string" }
-          - { name: "language", label: "Language", type: "string" }
-          - name: "metasocial"
-            label: "Social Metadata"
+          - name: "sponsors"
+            label: "Sponsors"
             type: "object"
             fields:
-              - { name: "facebook", label: "Facebook URL", type: "string" }
-              - { name: "twitter", label: "Twitter/X URL", type: "string" }
+              - { name: "title", label: "Title", type: "string" }
+              - { name: "description", label: "Description", type: "text" }
+              - name: "list"
+                label: "Sponsor List"
+                type: "list"
+                fields:
+                  - { name: "title", label: "Title", type: "string" }
+                  - { name: "image", label: "Image", type: "image" }
+                  - { name: "url", label: "URL", type: "string" }
+                  - { name: "alt", label: "Alt Text", type: "string" }
  

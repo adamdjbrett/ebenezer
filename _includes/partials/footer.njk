@@ -1,8 +1,8 @@
 <section class="sponsors-footer">
-    <h3 class="sponsor-title">{{sponsors.title}}</h3>
-    <p class="sponsor-description">{{sponsors.description}}</p>
+    <h3 class="sponsor-title">{{metadata.sponsors.title}}</h3>
+    <p class="sponsor-description">{{metadata.sponsors.description}}</p>
     <div class="sponsors-container">
-        {% for s in sponsors.list %}<a href="{{s.url}}" 
+        {% for s in metadata.sponsors.list %}<a href="{{s.url}}" 
         target="_blank" rel="noopener noreferrer"
         class="sponsor-item none">
             <img src="{{s.image}}" alt="{{s.alt}}" 
@@ -15,7 +15,7 @@
 </section>
 <footer class="footer">
 <p>
-{{design.footer.text}} | Built with <a href="https://www.11ty.dev">{{ eleventy.generator }}</a> 
+{{metadata.footer.text | mdInline | safe}} | Built with <a href="https://www.11ty.dev">{{ eleventy.generator }}</a> 
 | Maintained by <a href="https://adamdjbrett.com">Adam Dj Brett</a>
 </p>
 </footer>

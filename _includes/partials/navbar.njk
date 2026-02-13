@@ -1,21 +1,21 @@
 <header class="journal-header">
         <div class="header-top">
-            <span class="est-date">{{design.navbar.left_text}}</span>
-            <span class="issn-number">{{design.navbar.right_text}}</span>
+            <span class="est-date">{{metadata.navbar.left_text}}</span>
+            <span class="issn-number">{{metadata.navbar.right_text}}</span>
         </div>       
         <div class="header-main">
             <div class="journal-logo">
-                <a href="{{metadata.url}}"><img src="{{design.navbar.logo}}" alt="{{design.navbar.title}}" width="60"></a>
+                <a href="{{metadata.url}}"><img src="{{metadata.navbar.logo}}" alt="{{metadata.navbar.title}}" width="60"></a>
             </div>
-            <h1 class="journal-title"><a href="{{metadata.url}}" class="none">{{design.navbar.title}}</a></h1>
+            <h1 class="journal-title"><a href="{{metadata.url}}" class="none">{{metadata.navbar.title}}</a></h1>
         </div>
 
         <div class="journal-tagline">
-            <p>{{design.navbar.subtitle}}</p>
+            <p>{{metadata.navbar.subtitle}}</p>
         </div>
 
         <nav class="journal-nav">
-            <ul>{% for item in design.navbar.list %}
+            <ul>{% for item in metadata.navbar.list %}
                 <li><a href="{{item.url}}">{{item.name}}</a></li>
             {% endfor %}
             </ul><hr/>

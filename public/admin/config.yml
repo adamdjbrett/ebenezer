@@ -61,23 +61,6 @@ collections:
       - { label: "Authors", name: "author", widget: "string", hint: "Gunakan key dari data authors, pisahkan dengan koma (contoh: john-dhoe, jon-jones)" }
       - { label: "Tags", name: "tags", widget: "list" }
       - { label: "Body", name: "body", widget: "markdown" }
-  - name: "sponsors"
-    label: "Sponsors"
-    files:
-      - title: "Sponsors"
-        name: "sponsors"
-        file: "_data/sponsors.yaml"
-        fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Description", name: "description", widget: "text" }
-          - label: "Sponsor List"
-            name: "list"
-            widget: "list"
-            fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Image", name: "image", widget: "image" }
-              - { label: "URL", name: "url", widget: "string" }
-              - { label: "Alt Text", name: "alt", widget: "string" }
 
   - name: "data"
     label: "Global Data"
@@ -112,10 +95,32 @@ collections:
                 fields:
                   - { label: "Button Title", name: "title", widget: "string" }
                   - { label: "URL", name: "url", widget: "string" }
-      - title: "Design & Navbar"
-        name: "design"
-        file: "_data/design.yaml"
+      - title: "Site Metadata"
+        name: "metadata"
+        file: "_data/metadata.yaml"
         fields:
+          - { label: "Site Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Base URL", name: "url", widget: "string" }
+          - { label: "Language", name: "language", widget: "string" }
+          - { label: "Locale", name: "locale", widget: "string" }
+          - { label: "Favicon", name: "favicon", widget: "string" }
+          - { label: "Default Image", name: "image", widget: "string" }
+          - label: "Author"
+            name: "author"
+            widget: "object"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Email", name: "email", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+          - label: "Social Metadata"
+            name: "metasocial"
+            widget: "object"
+            fields:
+              - { label: "Facebook URL", name: "facebook", widget: "string" }
+              - { label: "Twitter/X URL", name: "twitter", widget: "string" }
+              - { label: "Instagram URL", name: "instagram", widget: "string", required: false }
+              - { label: "YouTube URL", name: "youtube", widget: "string", required: false }
           - label: "Navbar Settings"
             name: "navbar"
             widget: "object"
@@ -125,27 +130,44 @@ collections:
               - { label: "Logo Path", name: "logo", widget: "image" }
               - { label: "Left Text", name: "left_text", widget: "string" }
               - { label: "Right Text", name: "right_text", widget: "string" }
+              - label: "Nav Items"
+                name: "list"
+                widget: "list"
+                fields:
+                  - { label: "Name", name: "name", widget: "string" }
+                  - { label: "URL", name: "url", widget: "string" }
           - label: "Sidebar Settings"
             name: "sidebar"
             widget: "object"
             fields:
               - { label: "Search Placeholder", name: "search", widget: "string" }
               - { label: "Theme Switch Text", name: "themes_button", widget: "string" }
+              - label: "Sidebar Items"
+                name: "list"
+                widget: "list"
+                fields:
+                  - { label: "Name", name: "name", widget: "string" }
+                  - { label: "URL", name: "url", widget: "string" }
           - { label: "TOC Title", name: "toc", widget: "string" }
           - { label: "Show TOC on Articles", name: "show_toc_on_article", widget: "boolean" }
-          - { label: "Footer Text", name: "footer", widget: "object", fields: [{label: "Copyright", name: "text", widget: "string"}]}
-
-      - title: "Site Metadata"
-        name: "metadata"
-        file: "_data/metadata.yaml"
-        fields:
-          - { label: "Site Title", name: "title", widget: "string" }
-          - { label: "Description", name: "description", widget: "text" }
-          - { label: "Base URL", name: "url", widget: "string" }
-          - { label: "Language", name: "language", widget: "string" }
-          - label: "Social Metadata"
-            name: "metasocial"
+          - { label: "Show TOC on Pages", name: "show_toc_on_page", widget: "boolean", required: false }
+          - { label: "Show TOC on Home", name: "show_toc_on_home", widget: "boolean", required: false }
+          - label: "Footer"
+            name: "footer"
             widget: "object"
             fields:
-              - { label: "Facebook URL", name: "facebook", widget: "string" }
-              - { label: "Twitter/X URL", name: "twitter", widget: "string" }
+              - { label: "Copyright", name: "text", widget: "string" }
+          - label: "Sponsors"
+            name: "sponsors"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - label: "Sponsor List"
+                name: "list"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Image", name: "image", widget: "image" }
+                  - { label: "URL", name: "url", widget: "string" }
+                  - { label: "Alt Text", name: "alt", widget: "string" }

@@ -1,3 +1,4 @@
+import "./_config/node-polyfills.js";
 import { IdAttributePlugin, InputPathToUrlTransformPlugin, HtmlBasePlugin } from "@11ty/eleventy";
 import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 import pluginSyntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
@@ -163,8 +164,16 @@ eleventyConfig.addFilter("getAuthor", (authorList, authKey) => {
 		breaks: true,
 		linkify: true,
 	});
+	const mdInline = new markdownIt({
+		html: true,
+		breaks: true,
+		linkify: true,
+	});
 	eleventyConfig.addFilter("md", function (content) {
 		return md.render(content);
+	});
+	eleventyConfig.addFilter("mdInline", function(content) {
+		return mdInline.renderInline(content || "");
 	});
 
   let options = {

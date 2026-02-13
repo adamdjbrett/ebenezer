@@ -49,9 +49,9 @@ layout: layouts/base.njk
             </div>
         {% endif %}
     </header>
-    {% if design.show_toc_on_article %}
+    {% if metadata.show_toc_on_article %}
 <div class="toc-container">
-  <h2>{{design.toc}}</h2>
+  <h2>{{metadata.toc}}</h2>
   {{ content | toc | safe }}
 </div>
 {% endif %}
