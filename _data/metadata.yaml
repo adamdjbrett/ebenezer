@@ -1,5 +1,5 @@
 title: "Ebenezer"
-description: "A SUPPLEMENTAL E-JOURNAL FOR PUBLIC THEOLOGY & PUBLIC WITNESS"
+description: "A JOURNAL OF PUBLIC THEOLOGY & PUBLIC WITNESS"
 url: "https://ebenezer.pub"
 #url: "http://localhost:8080"
 language: "en"
@@ -10,12 +10,12 @@ image: "/assets/img/ebenezer-vert.png"
 author:
   name: "Adam DJ Brett"
   email: "info@adamdjbrett.com"
-  ur;: "https://adamdjbrett.com"
+  url: "https://adamdjbrett.com"
 
 metasocial: 
   facebook: "https://www.facebook.com/UnitedLutheranSeminary/"
   instagram: "https://www.instagram.com/UnitedLutheran"
   youtube: "https://www.youtube.com/unitedlutheranseminary"
   #twitter: "https://x.com/user"
-  #weet_user: "@user"
+  #twitter_user: "@user"
 
