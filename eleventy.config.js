@@ -9,7 +9,6 @@ import { minify } from "terser";
 import { library, config as fontAwesomeConfig } from '@fortawesome/fontawesome-svg-core';
 import * as fas from '@fortawesome/free-solid-svg-icons';
 import * as fab from '@fortawesome/free-brands-svg-icons';
-import { PurgeCSS } from 'purgecss';
 import dotenv from 'dotenv';
 import pluginFilters from "./_config/filters.js";
 import { execSync } from "child_process";
@@ -18,7 +17,6 @@ import markdownItAnchor from "markdown-it-anchor";
 import markdownItAttrs from 'markdown-it-attrs';
 import markdownItFootnote from "markdown-it-footnote";
 import markdownItTableOfContents from "markdown-it-table-of-contents";
-import pluginTOC from 'eleventy-plugin-toc';
 import shortcodes from "./_config/shortcodes.js";
 import fs from 'fs/promises';
 import path from 'path'; 
@@ -134,27 +132,6 @@ eleventyConfig.addFilter("getAuthor", (authorList, authKey) => {
                 return String(a.data.name || a.fileSlug).localeCompare(String(b.data.name || b.fileSlug));
             })
     );
-    // Transforms
-    eleventyConfig.addTransform("purge-css", async function(content) {
-        if (process.env.NODE_ENV === "production" && this.page.outputPath && this.page.outputPath.endsWith(".html")) {
-            try {
-                const purgeCSSResults = await new PurgeCSS().purge({
-                    content: [{ raw: content, extension: 'html' }],
-                    css: ['_site/css/bs.css'],
-                    safelist: {
-                        standard: [/active$/, /collaps/, /show$/, /dropdown/],
-                        deep: [/svg-inline--fa/]
-                    }
-                });
-                const minifiedCSS = new CleanCSS({}).minify(purgeCSSResults[0].css).styles;
-                return content.replace(/<link rel="stylesheet" href="\/css\/bs.css"[^>]*>/, `<style>${minifiedCSS}</style>`);
-            } catch (e) {
-                return content;
-            }
-        }
-        return content;
-    });
-
     eleventyConfig.addJavaScriptFunction("jsmin", async function(code) {
         if (process.env.NODE_ENV === "production" && code) {
             try {
@@ -201,6 +178,29 @@ eleventyConfig.addFilter("getAuthor", (authorList, authKey) => {
       permalinkClass: "direct-link",
       permalinkSymbol: "#"
   };
+
+  eleventyConfig.addFilter("toc", (content = "") => {
+    const headingPattern = /<h([2-4])[^>]*id="([^"]+)"[^>]*>([\s\S]*?)<\/h\1>/gi;
+    const headingItems = [];
+    let match;
+
+    while ((match = headingPattern.exec(content)) !== null) {
+      const level = Number.parseInt(match[1], 10);
+      const id = match[2];
+      const text = match[3].replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim();
+      if (id && text) {
+        headingItems.push({ level, id, text });
+      }
+    }
+
+    if (headingItems.length === 0) {
+      return "";
+    }
+
+    return `<ul>${headingItems
+      .map((heading) => `<li class="toc-level-${heading.level}"><a href="#${heading.id}">${heading.text}</a></li>`)
+      .join("")}</ul>`;
+  });
   eleventyConfig.addFilter("byAuthor", (posts, authorKey) => {
   if (!posts || !Array.isArray(posts)) {
     return [];
@@ -337,15 +337,6 @@ eleventyConfig.addFilter("findEditorByKey", (editors, lookup) => {
 			slugify: eleventyConfig.getFilter("slugify")
 		});
 	});
-	  eleventyConfig.addPlugin(pluginTOC, {
-		tags: ['h2', 'h3', 'h4', 'h5'],
-		  id: 'toci', 
-		  class: 'list-group',
-		ul: true,
-		flat: true,
-		wrapper: 'div'
-	  });
-
 	  eleventyConfig.on("eleventy.after", ({ dir }) => {
   try {
     console.log('🔄 Building Pagefind index...');
