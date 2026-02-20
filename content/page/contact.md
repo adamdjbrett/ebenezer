@@ -12,7 +12,7 @@ social:
     url: https://facebook.com/publictheologycom
   - title: Instagram
     icon: fab fa-instagram
-    url: https://intagram.com/user
+    url: http://instagram.com/publictheologycom
 permalink: /contact/
 ---
 ### Other Ways to Connect
