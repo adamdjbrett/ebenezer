@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       site:
-        description: "XMIT ebenezer.pub"
+        description: "XMIT journal.publictheology.com"
         required: true
         type: string
 
@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       # Target site/domain for XMIT deploy
-      XMIT_SITE: ebenezer.pub@402
+      XMIT_SITE: journal.publictheology.com@402
     steps:
       - name: Checkout
         uses: actions/checkout@v4
