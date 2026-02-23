@@ -1,5 +1,5 @@
 ---
-order: 02
+order: 03
 name: "Katilyn S. Brett"
 role: Editor
 image: /assets/img/

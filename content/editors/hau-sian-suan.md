@@ -1,5 +1,5 @@
 ---
-order: 03
+order: 04
 name: "Hau Sian Suan"
 role: Book Review Editor
 image: /assets/img/hau-sian-suan.jpg

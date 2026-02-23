@@ -1,5 +1,5 @@
 ---
-order: 01
+order: 02
 name: "Adam DJ Brett"
 role: Editor-in-Chief
 image: /assets/img/adamdjbrett.png
