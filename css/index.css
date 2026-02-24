@@ -61,7 +61,7 @@ h1, h2, h3, h4, h5, h6, .ebenezer-title, .post-title, .section-label {
     color: var(--bg-color); 
     padding: 0.5rem 1rem;
     z-index: 9999;
-    font-family: var(--font-sans, sans-serif);
+    font-family: var(--heading-font);
     font-size: 0.85rem;
     font-weight: bold;
     text-decoration: none;
