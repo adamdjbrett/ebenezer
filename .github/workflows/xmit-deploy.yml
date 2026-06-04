@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       site:
-        description: "XMIT journal.publictheology.com"
+        description: "XMIT site/domain (e.g. journal.publictheology.com@402)"
         required: true
         type: string
 
@@ -26,10 +26,10 @@ jobs:
       XMIT_SITE: journal.publictheology.com@402
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v4
         with:
           node-version: 24
           cache: npm
