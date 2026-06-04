@@ -18,6 +18,9 @@ concurrency:
 permissions:
   contents: read
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -26,16 +29,18 @@ jobs:
       XMIT_SITE: journal.publictheology.com@402
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 24
           cache: npm
 
       - name: Update npm
-        run: npm install -g npm@11
+        run: |
+          npm install -g npm@11.16.0
+          npm --version
 
       - name: Install dependencies
         run: npm ci --no-audit --fund=false --loglevel=error

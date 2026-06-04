@@ -14,18 +14,26 @@ concurrency:
   group: pages
   cancel-in-progress: true
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 24
           cache: npm
+
+      - name: Update npm
+        run: |
+          npm install -g npm@11.16.0
+          npm --version
 
       - name: Install dependencies
         run: npm ci --no-audit --fund=false --loglevel=error
@@ -34,7 +42,7 @@ jobs:
         run: npm run build-ghpages
 
       - name: Configure Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
