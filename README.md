@@ -1,3 +1,5 @@
+[![Deploy Eleventy to XMIT](https://github.com/adamdjbrett/ebenezer/actions/workflows/xmit-deploy.yml/badge.svg)](https://github.com/adamdjbrett/ebenezer/actions/workflows/xmit-deploy.yml)
+***
 # 📜 Ebenezer E-Journal
 [![xmit logo](xmit.gif)](https://xmit.co)
 deployed to xmit.co
