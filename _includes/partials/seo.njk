@@ -28,3 +28,26 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","description":"{{metadata.description}}","headline":"{{metadata.title}} - {{metadata.description}}","name":"{{metadata.title}}","url":"{{page.url}}"}</script>
 <link rel="apple-touch-icon" href="{{metadata.favicon}}">
 <script type="module">{% include "node_modules/@zachleat/heading-anchors/heading-anchors.js" %}</script>
+
+{% set isPost = layout == 'post' or "posts" in (tags or []) %}
+{% if isPost %}
+<link rel="cite-as" href="{{ metadata.url }}{{ page.url }}">
+<link rel="type" href="https://schema.org/BlogPosting">
+<link rel="author" href="{{ metadata.author.url or metadata.url }}">
+<link rel="describedby" type="application/ld+json" profile="https://schema.org/" href="{{ page.url }}metadata.json">
+<meta property="zotero:itemType" content="blogPost" />
+<meta property="dc:title" content="{{ (title or metadata.title) | escape }}" />
+<meta property="dc:creator" content="{{ metadata.author.name | escape }}" />
+{% if date %}<meta property="dc:date" content="{{ date | htmlDateString }}" />{% endif %}
+<meta property="dc:language" content="{{ metadata.language }}" />
+<meta property="dc:identifier" content="{{ metadata.url }}{{ page.url }}" />
+<meta name="citation_title" content="{{ (title or metadata.title) | escape }}" />
+<meta name="citation_author" content="{{ metadata.author.name | escape }}" />
+{% if date %}<meta name="citation_publication_date" content="{{ date | htmlDateString }}" />{% endif %}
+<meta name="citation_fulltext_html_url" content="{{ metadata.url }}{{ page.url }}" />
+<meta name="citation_public_url" content="{{ metadata.url }}{{ page.url }}" />
+<meta name="citation_language" content="{{ metadata.language }}" />
+{% if doi %}<meta name="citation_doi" content="{{ doi | escape }}" />{% endif %}
+<meta name="prism.genre" content="blogentry" />
+<meta name="prism.publicationName" content="{{ metadata.title | escape }}" />
+{% endif %}
